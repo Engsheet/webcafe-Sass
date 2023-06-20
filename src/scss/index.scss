@@ -1,1 +1,26 @@
 // index.scss
+@use "./utils" as *;
+@use "./base";
+@use "./layout";
+// ! "./utils/index" 에서 index 는 생략할 수 있음
+
+
+body {
+  //   @include test {
+  //     font-size: 20px
+  //      콘텐츠라는 지시자가 있기 때문에 폰트 사이즈 속성 선언이 들어갈 수 있음
+  //   };
+
+  background: yellow;
+  width: removeUnit(100px);
+  // ! 연산할 때, 단위가 다르면 scss 에서 연산할 수 없음 (ex. px/rem 등)
+  // _unit.scss 를 통해 단위를 변환하는 function 을 만들어 사용
+
+  @include mobile {
+    background: thistle;
+  }
+
+  @include desktop {
+    background: ivory;
+  }
+}

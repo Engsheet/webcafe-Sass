@@ -1,1 +1,18 @@
 // media-query.scss
+// 미디어 쿼리 믹스인
+
+$break: 768px;
+  
+  @mixin mobile {
+    @media (max-width: #{$break - 1}) {
+      @content;
+      // @content;
+      // 아직 확정되지 않은 선언을 index 에서 추가할 때 등 사용함
+  }
+}
+
+@mixin desktop {
+  @media (min-width: #{$break}) {
+    @content;
+  }
+}

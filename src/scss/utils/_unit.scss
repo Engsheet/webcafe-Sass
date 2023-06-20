@@ -1,1 +1,31 @@
 // util.scss
+// CSS 에서 사용할 수 있는 function 을 만드는 것
+
+@use "sass:math";
+// math 라고 하는 내장 함수를 사용
+
+// mixin (CSS 코드 조각을 내보냄) / function (return 연산의 결과값을 CSS로 내보냄)
+
+@function sum($v1, $v2) {
+  @return $v1 + $v2;
+}
+
+
+
+// 루트 요소 기본 단위 --------------------------------------------------------------- /
+$rootUnit: 16px !default;
+// $rootUnit: 16px;
+
+// 단위 제거 함수 ------------------------------------------------------------------ /
+@function removeUnit($value) {
+  // @return ($value / ($value * 0 + 1));
+  // @return math.div($value, $value * 0 + 1);
+  @return math.div($value, $value * 0 + 1px);
+}
+
+// px을 rem 단위로 변경하는 함수 ------------------------------------------------------- /
+@function rem($value, $base: $rootUnit) {
+  $removeValue: removeUnit($value);
+  $removeBase: removeUnit($base);
+  @return math.div($removeValue, $removeBase) * 1rem;
+}

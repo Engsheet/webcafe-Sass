@@ -1,1 +1,5 @@
 // index.scss
+@forward "normalize";
+@forward "reset";
+// normalize와 reset 을 한 후, default scss를 적용시켜야 default에 적용한 선언이 작동함
+@forward "default";
