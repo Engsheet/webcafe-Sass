@@ -20,26 +20,26 @@
 
 // position center mixin
 @mixin posCenter {
-  position: absolute;
+  @include pos;
   top: 50%;
   laeft: 50%;
   transform: translate(-50% -50%);
 }
 
 @mixin posCenterX {
-  position: absolute;
+  @include pos;
   left: 50%;
   transform: translateX(-50%);
 }
 
 @mixin posCenterY {
-  position: absolute;
+  @include pos;
   top: 50%;
   transform: translateY(-50%);
 }
 
 @mixin posBottomY {
-  position: absolute;
+  @include pos;
   top: 100%;
   transform: translateY(-100%);
 }
@@ -82,3 +82,4 @@
   margin-top: rem($spacing);
   margin-bottom: rem($spacing);
 }
+

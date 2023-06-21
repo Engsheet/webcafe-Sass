@@ -20,6 +20,7 @@ $rootUnit: 16px !default;
 @function removeUnit($value) {
   // @return ($value / ($value * 0 + 1));
   // @return math.div($value, $value * 0 + 1);
+  // div : 나눗셈. ex. (10px/1px) = 10
   @return math.div($value, $value * 0 + 1px);
 }
 
