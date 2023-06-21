@@ -51,10 +51,15 @@
   margin-right: auto;
 }
 
+@mixin autoMargin {
+  margin-left: auto;
+  margin-right: auto;
+}
+
 // padding mixin
 @mixin padding($spacing) {
-  @include paddingX;
-  @include paddingY;
+  @include paddingX($spacing);
+  @include paddingY($spacing);
 }
 
 @mixin paddingX($spacing) {
@@ -69,17 +74,16 @@
 
 // margin mixin
 @mixin margin($spacing) {
-  @include marginX;
-  @include marginY;
+  @include marginX($spacing);
+  @include marginY($spacing);
 }
 
-@mixin paddingX($spacing) {
+@mixin marginX($spacing) {
   margin-left: rem($spacing);
   margin-right: rem($spacing);
 }
 
-@mixin paddingY($spacing) {
+@mixin marginY($spacing) {
   margin-top: rem($spacing);
   margin-bottom: rem($spacing);
 }
-
