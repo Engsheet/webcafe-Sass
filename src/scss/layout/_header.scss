@@ -3,12 +3,23 @@
 @use "./../components" as *;
 // rem 함수를 쓰기 위해서는 use 함수로 해당 파일에서도 불러와야 함
 
+@debug errorMessage(test);
+
 .appHeader {
-  background: yellow;
   padding: rem(16px) rem(24px);
 
   @include flexbox(column);
   gap: rem(16px);
+
+  // 576px 이하에서 style 적용
+  // @include respond-until(sm) {
+  //   background: yellow;
+  // }
+
+  // 768px~992px 에서 style 적용
+  // @include respond-range(md, lg) {
+  //   background: blue;
+  // }
 
   // mixin 불러오기 : @include
   @include mobile {
