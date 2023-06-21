@@ -6,6 +6,15 @@
   position: absolute;
 }
 
+// Position 관련 믹스인 (다른 방법)
+// @mixin pos($pos: absolute, $t: initial, $r: initial, $b: initial, $l: initial) {
+//   position: $pos;
+//   top: $t;
+//   right: $r;
+//   bottom: $b;
+//   left: $l;
+// }
+
 @mixin posLeftTop($l: 0, $t: 0) {
   @include pos;
   left: $l;
@@ -86,4 +95,50 @@
 @mixin marginY($spacing) {
   margin-top: rem($spacing);
   margin-bottom: rem($spacing);
+}
+
+// grid mixin
+@mixin gridbox(
+  $column-count: 12,
+  $column-width: 1ft,
+  $row-gap: 0,
+  $column-gap: 16px
+) {
+  display: grid;
+  grid-template-columns: repeat($column-count, $column-width);
+  grid-template-rows: auto;
+  grid-column-gap: rem($column-gap);
+  grid-row-gap: rem($row-gap);
+}
+
+// ratio mixin
+@mixin ratio($w, $h) {
+  aspect-ratio: $w / $h;
+}
+
+//* ratio를 사용하지 않는 방법
+// @mixin responsIframe($w: 16, $h: 9) {
+//   position: relative;
+//   padding-top: math.div($h, $w) * 100%;
+//   height: 0 !important;
+
+//   iframe {
+//     position: absolute;
+//!    top, left 의 기본 값이 initail 이기 때문에 0을 명시함
+//     top: 0;
+//     left: 0;
+//     width: 100%;
+//     height: 100%;
+//   }
+// }
+
+
+// 반응형 콘텐츠
+@mixin respons($width: max-width, $height: auto) {
+  #{width}: 100%;
+  height: $height;
+  
+  // 결과 ->
+  // max-width: 100%;
+  // height: auto;
 }

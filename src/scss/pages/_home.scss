@@ -1,1 +1,131 @@
 // home.scss
+@use "../utils" as *;
+
+.appMain {
+  background: skyblue;
+  display: grid;
+  @include padding(16px);
+
+  // .sprite {
+  //   min-height: rem(60px);
+  //   padding-left: rem(65px);
+  //   background: url(../../images/sprite_main.png) no-repeat;
+  //   font-size: rem(18px);
+  //   font-weight: 700;
+  //   @include flexbox(column, center);
+
+  //   [class*='enTitle'] {
+  //     font-size: rem(16px);
+  //     font-weight: 400;
+  //   }
+  // }
+  // .spriteBook {
+  //   background-position: 0 0;
+  // }
+  // .spriteNews {
+  //   background-position: 0 -230px;
+  // }
+  // .spriteBoard {
+  //   background-position: 0 -115px;
+  // }
+  // .spriteFavorite {
+  //   background-position: 0 -345px;
+  // }
+  // .spriteTwitter {
+  //   background-position: 0 -460px;
+  // }
+  // .accentBook {
+  //   color: var(--accent-book);
+  // }
+  // .accentNews {
+  //   color: var(--accent-news);
+  // }
+  // .accentBoard {
+  //   color: var(--accent-board);
+  // }
+  // .accentFavorite {
+  //   color: var(--accent-favorite);
+  // }
+  // .accentTwitter {
+  //   color: var(--accent-twitter);
+  // }
+  
+  // 새소식
+  .news {
+    @at-root .iframeWrapper {
+      @include ratio(16,9);
+    }
+
+    // 반응형 믹스인 -> iframe
+    //! default 에 반응형을 위한 코드가 없으면 사용하지만, default 코드가 있기 때문에 주석처리함
+    // iframe {
+    //   @include respons(width, 100%);
+    // }
+  }
+  // 추천서적
+  .book {
+    &__cover {
+      width: 70%;
+      @include autoMargin;
+      text-align: center;
+
+      // 반응형 믹스인 -> 이미지
+      //! default 에 반응형을 위한 코드가 없으면 사용하지만, default 코드가 있기 때문에 주석처리함
+      // &Image {
+      //   @include respons;
+      // }
+    }
+
+    &__info {
+      @include flexbox($wrap: wrap, $justify: center);
+      column-gap: rem(8px);
+    }
+    @at-root .ratingStar {
+      width: 100%;
+      text-align: center;
+      font-size: rem(24px);
+    }
+  }
+  // 게시판
+  .board {
+
+  }
+  // 인기사이트
+  .favorite {}
+  // 트위터
+  .twitter {}
+
+  @include mobile {
+    @include gridbox(1, 100%, 16px);
+    // grid-template-columns: 100%;
+    // grid-template-rows: auto;
+    // row-gap: 16px;
+  }
+
+  @include desktop {
+    @include containerMax;
+    @include gridbox(12, 1fr, 16px, 20px);
+    // grid-template-columns: repeat(12, 1fr);
+    // grid-template-rows: auto;
+    grid-template-areas: 
+    "news news news news news news news news news news news news"
+    "book book book book . twitter twitter twitter twitter favorite favorite favorite"
+    "book book book book . board board board board board board board";
+
+    .book {
+      grid-area: book;
+    }
+    .news {
+      grid-area: news;
+    }
+    .board {
+      grid-area: board;
+    }
+    .favorite {
+      grid-area: favorite;
+    }
+    .twitter {
+      grid-area: twitter;
+    }
+  }
+}

@@ -1,7 +1,8 @@
 // index.scss
-@use "./utils" as *;
-@use "./base";
-@use "./layout";
+@use "utils" as *;
+@use "base";
+@use "layout";
+@use "pages";
 // ! "./utils/index" 에서 index 는 생략할 수 있음
 
 
