@@ -23,6 +23,8 @@
 // 햄버거 버튼
 .button--burger {
   @include mobile {
+    // 백그라운드 투명화해야함
+    background: transparent;
     width: rem(36px);
     height: rem(36px);
     border: 0;
