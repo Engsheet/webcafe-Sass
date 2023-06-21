@@ -53,7 +53,7 @@ legend {
 .spriteNews {
   background-position: 0 -230px;
 }
-.spriteFavortie {
+.spriteFavorite {
   background-position: 0 -345px;
 }
 .spriteTwitter {
@@ -615,7 +615,6 @@ iframe {
 }
 
 .appMain {
-  background: skyblue;
   display: grid;
   padding-left: 1rem;
   padding-right: 1rem;
@@ -645,6 +644,44 @@ iframe {
   font-size: 1.5rem;
 }
 
+.appMain .board {
+  position: relative;
+}
+.appMain .board__item {
+  background: yellow;
+  margin: 8px 0;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-start;
+  align-items: stretch;
+  column-gap: 0.5rem;
+}
+.appMain .board__link {
+  flex-grow: 1;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.appMain .board__date {
+  background: pink;
+  flex-basis: fit-content;
+  white-space: nowrap;
+}
+.appMain .board__more {
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+.appMain .twitter__userProfile {
+  aspect-ratio: 1;
+}
+.appMain .twitter__userProfileImage {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: 50% 50%;
+}
 @media (max-width: 767px) {
   .appMain {
     display: grid;
@@ -664,7 +701,7 @@ iframe {
     grid-template-rows: auto;
     grid-column-gap: 1.25rem;
     grid-row-gap: 1rem;
-    grid-template-areas: "news news news news news news news news news news news news" "book book book book . twitter twitter twitter twitter favorite favorite favorite" "book book book book . board board board board board board board";
+    grid-template-areas: "news news news news news news news news news news news news" "book book book book twitter twitter twitter twitter . favorite favorite favorite" "book book book book . board board board board board board board";
   }
   .appMain .book {
     grid-area: book;

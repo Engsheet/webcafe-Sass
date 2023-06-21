@@ -31,7 +31,7 @@ $colors: (
     font-weight: 400;
   }
 
-  $sprites: Book, Board, News, Favortie, Twitter;
+  $sprites: Book, Board, News, Favorite, Twitter;
   $x: 0;
   $y: 0;
   @each $sprite in $sprites {

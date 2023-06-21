@@ -142,3 +142,15 @@
   // max-width: 100%;
   // height: auto;
 }
+
+// 말줄임표 text overflow mixin
+@mixin textOver {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+@mixin fit($fit: cover, $posX: 50%, $posY: 50%) {
+  object-fit: $fit;
+  object-position: $posX $posY;
+}
