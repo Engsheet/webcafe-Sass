@@ -17,13 +17,13 @@
       // $color: #f0e68c;
       background: $accent-opacity-color;
       @include padding(20px);
-      width: 70vw;
-      height: 100vw;
+      width: 70vw; // view-width
+      height: 100vh; // view-height
+      // position: fixed; 스크롤을 내려도 메뉴가 고정됨
       position: fixed;
       top: 0;
       left: 0;
       transform: translateX(-150%);
-      // ! nav 요소 이상하게 나옴...
     }
     
     &__link {
