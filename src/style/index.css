@@ -376,8 +376,8 @@ iframe {
 .button {
   border: 0;
   background: transparent;
-  margin-left: 1rem;
-  margin-right: 1rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
   font-size: 0.875rem;
   border-radius: 0.25rem;
 }
@@ -393,6 +393,7 @@ iframe {
 
 @media (max-width: 767px) {
   .button--burger {
+    background: transparent;
     width: 2.25rem;
     height: 2.25rem;
     border: 0;
@@ -431,7 +432,6 @@ iframe {
 }
 
 .appHeader {
-  background: yellow;
   padding: 1rem 1.5rem;
   display: flex;
   flex-flow: column nowrap;
@@ -502,6 +502,64 @@ iframe {
   .searchForm__group .formInput {
     width: 25rem;
   }
+}
+
+.menu {
+  background: #988574;
+}
+@media (max-width: 767px) {
+  .menu {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: flex-start;
+    align-items: stretch;
+  }
+  .is-active .menu__list {
+    transform: none;
+  }
+  .menu__list {
+    background: rgba(240, 230, 140, 0.85);
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+    padding-top: 1.25rem;
+    padding-bottom: 1.25rem;
+    width: 70vw;
+    height: 100vw;
+    position: fixed;
+    left: 0;
+    right: 0;
+  }
+  .menu__link {
+    border-bottom: 1px solid black;
+  }
+}
+@media (min-width: 768px) {
+  .menu__list {
+    max-width: 64rem;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: stretch;
+    color: #ffffff;
+  }
+  .menu__link {
+    text-shadow: 1px 0px 1px blue, -1px 0px 1px blue;
+  }
+}
+.menu__link {
+  font-size: 1.125rem;
+  font-weight: 700;
+  display: block;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
 }
 
 body {

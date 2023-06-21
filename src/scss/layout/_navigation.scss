@@ -1,1 +1,56 @@
 // navigation.scss
+@use "../utils" as *;
+
+// 메인 내비게이션
+.menu {
+  background: $secondary-color;
+  
+  @include mobile {
+    @include flexbox($direction: column);
+
+    // at-root 를 쓰지 않으면 .menu .is-active .menu__list 로 선택자가 선택됨
+    // 이 방법은 원치 않는 선택자가 선택되면서 기능이 적용되지 않을 수 있기 때문에 위험함
+    // ? .menu__list 가 아닌 &__list 를 사용해도 @at-root 와 같이 적용되는 것으로 보임 (확인 필요)
+    @at-root .is-active .menu__list {
+      transform: none;
+    }
+    
+    &__list {
+      // $color: #f0e68c;
+      background: $accent-opacity-color;
+      @include padding(20px);
+      width: 70vw;
+      height: 100vw;
+      position: fixed;
+      left: 0;
+      right: 0;
+    }
+
+    &__link {
+      border-bottom: 1px solid black;
+    }
+  }
+
+  @include desktop {
+    // @at-root : 최상위 부모 요소에서 정의 (중첩에서 벗어나기)
+    // 지금은 중첩이 한개이기 때문에 &__list { } 와 같은 형태로 표시되지만 중첩이 많을 때 중첩에서 벗어나기 위해 사용
+    @at-root .menu__list {
+      @include containerMax;
+      @include paddingX(20px);
+      @include paddingY(16px);
+      @include flexbox($justify: space-between);
+      color: $white;
+    }
+    
+    &__link {
+      text-shadow: 1px 0px 1px blue, -1px 0px 1px blue;
+    }
+  }
+  
+  &__link {
+    font-size: rem(18px);
+    font-weight: 700;
+    display: block;
+    @include padding(16px);
+  }
+}
